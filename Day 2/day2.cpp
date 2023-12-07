@@ -22,13 +22,13 @@ int main() {
                     temp = 10*(line.at(i-1) - '0');
                 }
 
-                if (line.substr(i, 5) == " blue") {
+                if (line.substr(i+2, 4) == "blue") {
                     blue=line.at(i) - '0' + temp;
-                    
-                } else if (line.substr(i, 6) == " green") {
+                   
+                } else if (line.substr(i+2, 5) == "green") {
                     green=line.at(i) - '0'+ temp;
                   
-                } else if (line.substr(i, 5) == " red") {
+                } else if (line.substr(i+2, 3) == "red") {
                     red=line.at(i) - '0'+ temp;
                     
                 }
@@ -55,9 +55,10 @@ int main() {
                 }
             }
         }
-
+       
         if (possible) {
-            id += line.at(5) - '0';
+            int length = line.find(":") -5;
+            id += stoi(line.substr(5, length));
         }
 
     }
