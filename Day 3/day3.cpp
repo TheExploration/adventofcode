@@ -6,7 +6,7 @@ int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    char symbols[] = "!@#$%^&*()_+";
+    char symbols[] = "!@#$%^&*()_+/+=-{}[]|:;<>?,";
     int sum = 0;
 
     ifstream file("day3.txt");
@@ -34,15 +34,15 @@ int main() {
                 }
                 for (int k = -1; k <= i; k++) {
                     
-                    if (strchr(symbols, arr[r+1][c+k]) != NULL) {
+                    if (r < arr.size()-1 && (c+k) >=0 && (c+k) <= arr[r].size() && strchr(symbols, arr[r+1][c+k]) != NULL) {
                         found = true;
                         break;
                     }
-                    if (strchr(symbols, arr[r-1][c+k]) != NULL) {
+                    if (r > 0 && (c+k) >=0 && (c+k) <= arr[r].size() && strchr(symbols, arr[r-1][c+k]) != NULL) {
                         found = true;
                         break;
                     }
-                    if (strchr(symbols, arr[r][c+k]) != NULL) {
+                    if ((c+k) >=0 && (c+k) <= arr[r].size() && strchr(symbols, arr[r][c+k]) != NULL) {
                         found = true;
                         break;
                     }
@@ -54,7 +54,7 @@ int main() {
                     for (int j = 0; j < i; j++) {
                         str += arr[r][c+j];
                     } 
-                    cout << str << endl;
+                    
                     sum += stoi(str);
                 }
                 c+=i;
