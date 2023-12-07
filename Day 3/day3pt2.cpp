@@ -96,6 +96,7 @@ int main()
             }
             if (adj == 2)
             {
+                cout << ratio << endl;
                 sum += ratio;
             }
         }
