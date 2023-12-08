@@ -72,7 +72,7 @@ int main()
                 }
                 else
                 {
-                    if ((r + 1) < arr.size() && (c - 1) >= 0 && isdigit(arr[r - 1][c - 1]))
+                    if ((r + 1) < arr.size() && (c - 1) >= 0 && isdigit(arr[r + 1][c - 1]))
                     {
                         adj++;
                         ratio = ratio * gearNum(arr, r + 1, c - 1);
@@ -82,7 +82,7 @@ int main()
                             ratio = ratio * gearNum(arr, r + 1, c + 1);
                         }
                     } else
-                    if ((r + 1) >= 0 && (c + 1) < arr[r].size() && isdigit(arr[r + 1][c + 1]))
+                    if ((r + 1) < arr.size() && (c + 1) < arr[r].size() && isdigit(arr[r + 1][c + 1]))
                     {
                         adj++;
                         ratio = ratio * gearNum(arr, r + 1, c + 1);
@@ -123,6 +123,6 @@ int gearNum(vector<vector<char>> arr, int r, int c)
     {
         return 0;
     }
-
+    cout << str << endl;
     return stoi(str);
 }
